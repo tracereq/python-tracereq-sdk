@@ -10,7 +10,7 @@ This is the Python SDK for [TraceReq](http://tracereq.com/)
 pip install --upgrade tracereq
 ```
 
-## Using with Flask
+## Usage with Flask
 
 ```python
 import tracereq
@@ -22,12 +22,10 @@ tracereq.init(
 )
 ```
 
-Adding the above in all your flask services will start tracing requests within all the services.
+Adding the above any flask service will start tracing requests.
+No other additional code is required.
 
-## Integrations
+## Supported Frameworks
 
 - [Flask](https://github.com/pallets/flask)
 
-## License
-
-Licensed under the MIT license, see [`LICENSE`](LICENSE)
