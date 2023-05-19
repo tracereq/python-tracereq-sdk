@@ -1,0 +1,5 @@
+HEADER_NAME = 'TRACEREQ_TOKEN'
+REQUEST = 'request'
+RESPONSE = 'response'
+TRANSPORT_SEND_TIMEOUT = 1000.0
+DESTINATION_URL = 'https://app.tracereq.com'
