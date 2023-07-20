@@ -39,11 +39,13 @@ class HTTPTransport(object):
         )
 
     def send(self, trace_doc):
-        a = to_json(trace_doc)
-        self.session.request(
-            'POST',
-            self.dest,
-            body=to_json(trace_doc),
-            timeout=self.timeout,
-            retries=False
-        )
+        try:
+            self.session.request(
+                'POST',
+                self.dest,
+                body=to_json(trace_doc),
+                timeout=self.timeout,
+                retries=False
+            )
+        except Exception as ex:
+            pass
