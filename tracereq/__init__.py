@@ -3,35 +3,46 @@ from threading import Lock
 _installer_lock = Lock()
 _installed_integrations = {}
 
-def get_default_integrations(wsgi_app):
-    from .customhttplib import CustomHttpLib
-    yield CustomHttpLib()
 
-    from .flasklib import FlaskLib
-    yield FlaskLib(wsgi_app)
+def get_core_integrations():
+    from .customlib import CustomlibIntegration
+    yield CustomlibIntegration()
 
 
-def setup_integrations(wsgi_app):
+def get_custom_integrations(**kwargs):
+    if kwargs.get('flask_wsgi_app'):
+        from .flasklib import FlasklibIntegration
+        yield FlasklibIntegration(kwargs.get('flask_wsgi_app'))
+
+
+def setup_integrations(*args, **kwargs):
     integrations = list()
-    for integration in get_default_integrations(wsgi_app):
-        if not any(isinstance(x, type(integration)) for x in integrations):
-            integrations.append(integration)
+
+    core_integrations = get_core_integrations()
+    custom_integrations = get_custom_integrations(**kwargs)
+    for instance in core_integrations:
+        if not any(isinstance(x, type(instance)) for x in integrations):
+            integrations.append(instance)
+
+    for instance in custom_integrations:
+        if not any(isinstance(x, type(instance)) for x in integrations):
+            integrations.append(instance)
 
     for integration in integrations:
         integration()
 
 
 class Integration(object):
-    identifier = None
+    integration_key = None
 
     def install(self):
         raise NotImplementedError()
 
     def __call__(self, environ=None, start_response=None):
-        assert self.identifier
+        assert self.integration_key
         with _installer_lock:
-            if self.identifier in _installed_integrations:
+            if self.integration_key in _installed_integrations:
                 return
 
             self.install()
-            _installed_integrations[self.identifier] = self
+            _installed_integrations[self.integration_key] = self
