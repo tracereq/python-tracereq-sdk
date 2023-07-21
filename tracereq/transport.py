@@ -40,6 +40,7 @@ class HTTPTransport(object):
 
     def send(self, trace_doc):
         try:
+            trace_doc['timestamp'] = datetime.utcnow()
             self.session.request(
                 'POST',
                 self.dest,
