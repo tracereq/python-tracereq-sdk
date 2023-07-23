@@ -7,7 +7,7 @@ This is the Python SDK for [TraceReq](http://tracereq.com/)
 ## Installation
 
 ```bash
-pip install --upgrade tracereq
+pip install --upgrade tracereq-sdk
 ```
 
 ## Usage with Flask

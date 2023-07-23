@@ -5,7 +5,7 @@ from .transport import HTTPTransport
 class Client(object):
     def __init__(
             self,
-            api_key: str = '',
+            api_key,
             *args,
             **kwargs
     ):
