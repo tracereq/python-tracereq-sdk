@@ -1,5 +1,7 @@
 # TraceReq SDK for Python
 
+[![PyPi page link -- version](https://img.shields.io/pypi/v/tracereq-sdk.svg)](https://pypi.python.org/pypi/tracereq-sdk)
+
 This is the Python SDK for [TraceReq](http://tracereq.com/)
 
 ---
