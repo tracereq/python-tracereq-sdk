@@ -26,13 +26,13 @@ def to_json(obj):
 
 
 class HTTPTransport(object):
-    def __init__(self, token, dest):
-        self.token = token
+    def __init__(self, api_key, dest):
+        self.api_key = api_key
         self.dest = dest
         self.timeout = TRANSPORT_SEND_TIMEOUT
         self.session = urllib3.PoolManager(
             headers={
-                'Authorization': 'Bearer {}'.format(self.token),
+                'Authorization': 'Bearer {}'.format(self.api_key),
                 'Content-Type': 'application/json'
             },
             maxsize=5
