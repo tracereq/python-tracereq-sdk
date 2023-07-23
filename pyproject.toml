@@ -20,7 +20,7 @@ classifiers = [
 ]
 keywords = ["flask", "trace", "api"]
 dependencies = [
-    "urllib3"
+    'urllib3>=1.26.16; python_version >="3.6"'
 ]
 requires-python = ">=3.6"
 
