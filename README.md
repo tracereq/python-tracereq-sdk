@@ -16,9 +16,8 @@ pip install --upgrade tracereq
 import tracereq
 
 app = Flask(__name__)
-tracereq.init(
-    flask_wsgi_app=app.wsgi_app,
-    token='auth_token'
+tracereq.init(api_key='xxx-xxx',
+    flask_app=app.wsgi_app
 )
 ```
 

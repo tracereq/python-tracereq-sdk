@@ -10,9 +10,9 @@ def get_core_integrations():
 
 
 def get_custom_integrations(**kwargs):
-    if kwargs.get('flask_wsgi_app'):
+    if kwargs.get('flask_app'):
         from .flasklib import FlasklibIntegration
-        yield FlasklibIntegration(kwargs.get('flask_wsgi_app'))
+        yield FlasklibIntegration(kwargs.get('flask_app'))
 
 
 def setup_integrations(*args, **kwargs):

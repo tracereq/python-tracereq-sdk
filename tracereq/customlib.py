@@ -23,7 +23,7 @@ class CustomlibIntegration(Integration):
         def custom_putrequest(self, method, url, *args, **kwargs):
             self.engine = Engine.current
             req = original_putrequest(self, method, url, *args, **kwargs)
-            if DESTINATION_URL in self.host:
+            if self.host in DESTINATION_URL:
                 return req
 
             parsed_url = urlsplit(url)
@@ -43,7 +43,7 @@ class CustomlibIntegration(Integration):
 
         def custom_getresponse(self, *args, **kwargs):
             res = original_getresponse(self, *args, **kwargs)
-            if DESTINATION_URL in self.host:
+            if self.host in DESTINATION_URL:
                 return res
 
             self._trace = self.engine.get_trace()
