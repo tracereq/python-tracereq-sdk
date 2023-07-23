@@ -5,7 +5,7 @@ _installed_integrations = {}
 
 
 def get_core_integrations():
-    from .customlib import CustomlibIntegration
+    from tracereq.customlib import CustomlibIntegration
     yield CustomlibIntegration()
 
 

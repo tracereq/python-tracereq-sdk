@@ -1,4 +1,4 @@
-from . import Integration
+from .integrations import Integration
 from .engine import Engine
 from .constants import HEADER_NAME, DESTINATION_URL
 from urllib.parse import urlsplit
