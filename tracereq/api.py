@@ -1,6 +1,6 @@
 from .engine import Engine
 from .client import Client
-from . import setup_integrations
+from .integrations import setup_integrations
 
 __all__ = ['Engine', 'Client']
 
