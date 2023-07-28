@@ -11,7 +11,8 @@ def public(f):
 
 
 @public
-def init(token, *args, **kwargs):
-    client = Client(token, *args, **kwargs)
+def init(api_key, *args, **kwargs):
+    client = Client(api_key, *args, **kwargs)
     Engine.main.attach_client(client)
     setup_integrations(*args, **kwargs)
+
