@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tracereq-sdk"
-version = "1.0.0"
+version = "1.0.2"
 description = "Python client for TraceReq (https://tracereq.com)"
 readme = "README.md"
 authors = [
@@ -31,7 +31,7 @@ dev = ["pip-tools"]
 Homepage = "https://github.com/tracereq/python-tracereq-sdk"
 
 [tool.bumpver]
-current_version = "1.0.1"
+current_version = "1.0.2"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message = "bump version {old_version} -> {new_version}"
 tag_message = "{new_version}"
