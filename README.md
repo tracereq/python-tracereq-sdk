@@ -15,10 +15,10 @@ pip install --upgrade tracereq-sdk
 ## Usage with Flask
 
 ```python
-import tracereq
+import tracereq_sdk
 
 app = Flask(__name__)
-tracereq.init(api_key='xxx-xxx',
+tracereq_sdk.init(api_key='xxx-xxx',
     flask_app=app.wsgi_app
 )
 ```
