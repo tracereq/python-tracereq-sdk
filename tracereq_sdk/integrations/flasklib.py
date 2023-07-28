@@ -1,8 +1,8 @@
 from flask import Flask, _request_ctx_stack
 from flask.signals import request_started, request_finished
 from . import Integration
-from tracereq.engine import Engine
-from tracereq.tracing import generate_trace_event, Trace, generalize_request
+from tracereq_sdk.engine import Engine
+from tracereq_sdk.tracing import generate_trace_event, Trace, generalize_request
 
 
 class FlasklibIntegration(Integration):

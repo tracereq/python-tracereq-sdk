@@ -44,12 +44,4 @@ push = false
 "pyproject.toml" = [
     'current_version = "{version}"',
 ]
-"setup.py" = [
-    "{version}",
-    "{pep440_version}",
-]
-"README.md" = [
-    "{version}",
-    "{pep440_version}",
-]
-
+"tracereq_sdk/__init__.py" = ["{version}"]
